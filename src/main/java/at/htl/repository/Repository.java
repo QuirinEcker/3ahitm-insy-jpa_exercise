@@ -12,5 +12,8 @@ public class Repository<Entity, T> implements PanacheRepositoryBase<Entity, T> {
         return getEntityManager().merge(entity);
     }
 
-
+    @Transactional
+    public boolean removeById(T id) {
+        return deleteById(id);
+    }
 }

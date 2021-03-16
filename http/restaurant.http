@@ -13,3 +13,30 @@ GET localhost:8080/restaurant/1/customers
 #### Get Dishes of Restaurant
 
 GET localhost:8080/restaurant/1/dishes
+
+#### POST Dishes
+
+POST localhost:8080/restaurant/
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Implotastische Küche",
+  "address": "Nania",
+  "phoneNumber": "404",
+  "openingDate": "2021-03-16",
+  "openingHours": {
+    "id": 1,
+    "monday": "asd",
+    "tuesday": "asdj",
+    "wednesday": "asd",
+    "thursday": "sad",
+    "friday": "asd",
+    "sunday": "apsjdf",
+    "saturday": "asjd"
+  }
+}
+
+#### DELETE Dishes
+DELETE localhost:8080/restaurant/1
+
