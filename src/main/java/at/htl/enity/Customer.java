@@ -1,5 +1,7 @@
 package at.htl.enity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.List;
 public class Customer extends Person {
 
     @ManyToMany(mappedBy = "customers")
+    @JsonIgnore
     private List<Restaurant> restaurants;
 
     private int points;

@@ -13,11 +13,11 @@ public class Dish {
 
     private double price;
 
-    public Dish(String name, String description, double price) {
+    public Dish(double price) {
         this.price = price;
     }
 
-    public Dish(Long id, String name, String description, double price) {
+    public Dish(Long id, double price) {
         this.id = id;
         this.price = price;
     }

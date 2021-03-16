@@ -1,0 +1,15 @@
+##### Get All Restaurants
+
+GET localhost:8080/restaurant
+
+##### Get Restaurant By Id
+
+GET localhost:8080/restaurant/1
+
+##### Get Customers of Restaurant
+
+GET localhost:8080/restaurant/1/customers
+
+#### Get Dishes of Restaurant
+
+GET localhost:8080/restaurant/1/dishes

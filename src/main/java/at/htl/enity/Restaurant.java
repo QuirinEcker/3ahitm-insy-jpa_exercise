@@ -1,6 +1,11 @@
 package at.htl.enity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +21,17 @@ public class Restaurant {
     private String phoneNumber;
     private LocalDate openingDate;
 
+
     @ManyToMany
     @JoinTable(
             name = "Restaurant_Customer",
             joinColumns = {@JoinColumn(name = "restaurant_id")},
             inverseJoinColumns = {@JoinColumn(name = "customer_id")}
     )
+    @JsonIgnore
     private List<Customer> customers;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "Restaurant_Dishes",
@@ -33,6 +41,7 @@ public class Restaurant {
     private List<Dish> offeredDishes;
 
     @ManyToOne
+    @Cascade({CascadeType.ALL})
     @JoinColumn(name = "opening_hours_id")
     private OpeningHours openingHours;
 

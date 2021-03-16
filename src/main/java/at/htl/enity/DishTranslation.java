@@ -24,6 +24,13 @@ public class DishTranslation {
         @JoinColumn(name = "dish_id")
         private Dish dish;
 
+        public DishTranslationId(Language language, Dish dish) {
+            this.language = language;
+            this.dish = dish;
+        }
+
+        public DishTranslationId() {}
+
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

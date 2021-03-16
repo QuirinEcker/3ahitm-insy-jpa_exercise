@@ -1,5 +1,7 @@
 package at.htl.enity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -15,6 +17,7 @@ public class CustomerOrder {
     private Customer customer;
 
     @OneToMany(mappedBy = "order")
+    @JsonIgnore
     private List<CustomerOrderPosition> orderPositions;
 
     @ManyToOne
