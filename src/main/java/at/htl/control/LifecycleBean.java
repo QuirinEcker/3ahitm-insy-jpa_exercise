@@ -156,7 +156,8 @@ public class LifecycleBean {
         customerOrderPosition2 = customerOrderPositionRepository.save(customerOrderPosition2);
         customerOrderPosition2 = customerOrderPositionRepository.save(customerOrderPosition3);
 
-        Employee employee1 = new Employee(
+        Employee employee1 = new Employee(+
+                1L,
                 "Quirin",
                 "Ecker",
                 "Mühlkreisbahnstraße 5",
@@ -167,6 +168,7 @@ public class LifecycleBean {
         );
 
         Employee employee2 = new Employee(
+                1L,
                 "Quirin",
                 "Ecker",
                 "Mühlkreisbahnstraße 5",
