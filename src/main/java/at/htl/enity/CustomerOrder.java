@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,18 +27,24 @@ public class CustomerOrder {
 
     private LocalDate orderDate;
 
-    public CustomerOrder(Customer customer, LocalDate orderDate) {
+
+    public CustomerOrder(Customer customer, Restaurant restaurant, LocalDate orderDate) {
+        this();
         this.customer = customer;
+        this.restaurant = restaurant;
         this.orderDate = orderDate;
     }
 
-    public CustomerOrder(Long id, Customer customer, LocalDate orderDate) {
+    public CustomerOrder(Long id, Customer customer, Restaurant restaurant, LocalDate orderDate) {
+        this();
         this.id = id;
         this.customer = customer;
+        this.restaurant = restaurant;
         this.orderDate = orderDate;
     }
 
     public CustomerOrder() {
+        this.orderPositions = new ArrayList<>();
     }
 
     public Long getId() {
@@ -62,6 +69,22 @@ public class CustomerOrder {
 
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public List<CustomerOrderPosition> getOrderPositions() {
+        return orderPositions;
+    }
+
+    public void setOrderPositions(List<CustomerOrderPosition> orderPositions) {
+        this.orderPositions = orderPositions;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 }
 
