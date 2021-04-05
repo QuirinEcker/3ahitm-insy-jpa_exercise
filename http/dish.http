@@ -1,12 +1,12 @@
-##### Get All Customer Order Positions
+##### Get All Dish
 
 GET localhost:8080/dish
 
-##### Get Customeer Order Position By Id
+##### Get Dish By Id
 
 GET localhost:8080/dish/1
 
-#### POST Customer Order Position
+#### POST Dish
 
 POST localhost:8080/dish
 Content-Type: application/json
@@ -16,6 +16,6 @@ Content-Type: application/json
   "price": 15.6
 }
 
-#### DELETE Customer Order Position
-DELETE localhost:8080/customerOrderPosition/1
+#### DELETE Dish
+DELETE localhost:8080/dish/1
 
