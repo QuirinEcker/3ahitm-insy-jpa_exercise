@@ -61,14 +61,20 @@ public class RestaurantService {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response post(Restaurant restaurant, @Context UriInfo info) {
-        restaurant = repository.save(restaurant);
-        URI uri = URI.create(info.getAbsolutePath() + "" + restaurant.getId());
+        if (repository.create(restaurant.getId(), restaurant)) {
+            System.out.println(restaurant);
+            URI uri = URI.create(info.getAbsolutePath() + "" + restaurant.getId());
 
-        return Response
-                .created(uri)
-                .location(uri)
-                .entity(restaurant)
-                .build();
+            return Response
+                    .created(uri)
+                    .location(uri)
+                    .entity(restaurant)
+                    .build();
+        } else {
+            return Response.
+                    status(Response.Status.CONFLICT)
+                    .build();
+        }
     }
 
     @PUT
