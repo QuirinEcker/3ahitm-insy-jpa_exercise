@@ -1,0 +1,29 @@
+##### Get All languages
+
+GET localhost:8080/employee
+
+##### Get language by id
+
+GET localhost:8080/employee/2
+
+#### POST language
+
+POST localhost:8080/employee
+Content-Type: application/json
+
+{
+  "id": 5,
+  "firstname": "Quirin",
+  "lastname": "Ecker",
+  "address": "Mühlkreisbahnstraße 5",
+  "birthDate": "2021-04-06",
+  "ssn": "123456",
+  "restaurantPosition": "MANAGER",
+  "restaurant": {
+    "id": 1
+  }
+}
+
+#### DELETE language
+DELETE localhost:8080/employee/2
+
