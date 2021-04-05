@@ -28,6 +28,9 @@ public class LifecycleBean {
     @Inject
     CustomerOrderRepository customerOrderRepository;
 
+    @Inject
+    CustomerOrderPositionRepository customerOrderPositionRepository;
+
     public void onStart(@Observes StartupEvent ev) {
         OpeningHours openingHours = new OpeningHours(
                 "asd",
@@ -138,7 +141,18 @@ public class LifecycleBean {
 
         customerOrder1 = customerOrderRepository.save(customerOrder1);
         customerOrder2 = customerOrderRepository.save(customerOrder2);
+
+        CustomerOrderPosition customerOrderPosition1 =
+                new CustomerOrderPosition(1L, 1, 8, customerOrder1, dish1);
+        CustomerOrderPosition customerOrderPosition2 =
+                new CustomerOrderPosition(2L, 4, 8, customerOrder1, dish3);
+        CustomerOrderPosition customerOrderPosition3 =
+                new CustomerOrderPosition(3L, 1, 8, customerOrder2, dish2);
+
+        customerOrderPosition1 = customerOrderPositionRepository.save(customerOrderPosition1);
+        customerOrderPosition2 = customerOrderPositionRepository.save(customerOrderPosition2);
+        customerOrderPosition2 = customerOrderPositionRepository.save(customerOrderPosition3);
     }
 
-    // Long id, Customer customer, Restaurant restaurant, LocalDate orderDate
+    // Long id, int orderPos, int quantity, CustomerOrder order, Dish dish
 }
