@@ -1,5 +1,7 @@
 package at.htl.enity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -71,5 +73,13 @@ public class Employee extends Person {
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public RestaurantPosition getRestaurantPosition() {
+        return restaurantPosition;
+    }
+
+    public void setRestaurantPosition(RestaurantPosition restaurantPosition) {
+        this.restaurantPosition = restaurantPosition;
     }
 }
