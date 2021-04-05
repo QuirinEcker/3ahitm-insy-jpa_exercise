@@ -20,8 +20,7 @@ public class Repository<Entity, T> implements PanacheRepositoryBase<Entity, T> {
 
     @Transactional
     public boolean create(T id, Entity entity) {
-        if (findById(id) != null) {
-            System.out.println("is not persistent");
+        if (id == null || findById(id) == null) {
             save(entity);
             return true;
         } else return false;

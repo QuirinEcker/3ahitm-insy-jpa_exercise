@@ -54,6 +54,7 @@ public class CustomerService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response post(Customer customer, @Context UriInfo info) {
         if (repository.create(customer.getId(), customer)) {
+            customer = repository.save(customer);
             URI uri = URI.create(info.getAbsolutePath() + "" + customer.getId());
 
             return Response
@@ -82,11 +83,11 @@ public class CustomerService {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response delete(@PathParam("id") Long id) {
-        var restaurant = repository.findById(id);
+        var customer = repository.findById(id);
 
         if (repository.removeById(id)) {
             return Response.ok()
-                    .entity(restaurant)
+                    .entity(customer)
                     .build();
         } else return Response.noContent()
                 .build();

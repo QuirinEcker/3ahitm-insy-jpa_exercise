@@ -1,0 +1,44 @@
+##### Get All Customer
+
+GET localhost:8080/customer
+
+##### Get Customer By Id
+
+GET localhost:8080/customer/1
+
+##### Get Restaurants of Customer
+
+GET localhost:8080/customer/1/restaurants
+
+#### POST Customer
+
+POST localhost:8080/customer
+Content-Type: application/json
+
+{
+  "firstname": "Quirin",
+  "lastname": "Ecker",
+  "address": "Mühlkreisbahnstraße 5",
+  "birthDate": "2021-04-05",
+  "points": 100
+}
+
+#### PUT Customer
+
+PUT localhost:8080/customer
+Content-Type: application/json
+
+
+{
+  "id": 1,
+  "firstname": "Quirin",
+  "lastname": "Ecker",
+  "address": "Mühlkreisbahnstraße 5",
+  "birthDate": "2021-04-05",
+  "points": 100
+}
+
+
+#### DELETE Customer
+DELETE localhost:8080/customer/1
+
