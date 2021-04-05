@@ -12,6 +12,15 @@ public class Employee extends Person {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
+    @Enumerated(EnumType.STRING)
+    RestaurantPosition restaurantPosition;
+
+    public enum RestaurantPosition {
+        MANAGER,
+        KITCHEN_MANAGER,
+        COOK,
+        SERVER
+    }
 
     public Employee(
             String firstname,
@@ -19,11 +28,13 @@ public class Employee extends Person {
             String address,
             LocalDate birthdate,
             String ssn,
-            Restaurant restaurant
+            Restaurant restaurant,
+            RestaurantPosition restaurantPosition
     ) {
         super(firstname, lastname, address, birthdate);
         this.ssn = ssn;
         this.restaurant = restaurant;
+        this.restaurantPosition = restaurantPosition;
     }
 
     public Employee(
@@ -33,11 +44,13 @@ public class Employee extends Person {
             String address,
             LocalDate birthdate,
             String ssn,
-            Restaurant restaurant
+            Restaurant restaurant,
+            RestaurantPosition restaurantPosition
     ) {
         super(id, firstname, lastname, address, birthdate);
         this.ssn = ssn;
         this.restaurant = restaurant;
+        this.restaurantPosition = restaurantPosition;
     }
 
     public Employee() {
