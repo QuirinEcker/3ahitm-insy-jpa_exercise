@@ -10,19 +10,6 @@ import java.time.LocalDate;
 
 public class LifecycleBean {
 
-//    String name
-//    String address
-//    String phoneNumber
-//    LocalDate openingDate
-//    OpeningHours openingHours
-//
-//    Long id,
-//    String firstname,
-//    String lastname,
-//    String address,
-//    LocalDate birthDate,
-//    int points
-
     @Inject
     RestaurantRepository restaurantRepository;
 
@@ -37,6 +24,9 @@ public class LifecycleBean {
 
     @Inject
     LanguageRepository languageRepository;
+
+    @Inject
+    CustomerOrderRepository customerOrderRepository;
 
     public void onStart(@Observes StartupEvent ev) {
         OpeningHours openingHours = new OpeningHours(
@@ -142,5 +132,13 @@ public class LifecycleBean {
         dishTranslation2_de = dishTranslationRepository.save(dishTranslation2_de);
         dishTranslation3_en = dishTranslationRepository.save(dishTranslation3_en);
         dishTranslation3_de = dishTranslationRepository.save(dishTranslation3_de);
+
+        CustomerOrder customerOrder1 = new CustomerOrder(1L, customer, restaurant, LocalDate.now());
+        CustomerOrder customerOrder2 = new CustomerOrder(2L, customer, restaurant, LocalDate.now());
+
+        customerOrder1 = customerOrderRepository.save(customerOrder1);
+        customerOrder2 = customerOrderRepository.save(customerOrder2);
     }
+
+    // Long id, Customer customer, Restaurant restaurant, LocalDate orderDate
 }
