@@ -31,6 +31,9 @@ public class LifecycleBean {
     @Inject
     CustomerOrderPositionRepository customerOrderPositionRepository;
 
+    @Inject
+    EmployeeRepository employeeRepository;
+
     public void onStart(@Observes StartupEvent ev) {
         OpeningHours openingHours = new OpeningHours(
                 "asd",
@@ -152,7 +155,28 @@ public class LifecycleBean {
         customerOrderPosition1 = customerOrderPositionRepository.save(customerOrderPosition1);
         customerOrderPosition2 = customerOrderPositionRepository.save(customerOrderPosition2);
         customerOrderPosition2 = customerOrderPositionRepository.save(customerOrderPosition3);
-    }
 
-    // Long id, int orderPos, int quantity, CustomerOrder order, Dish dish
+        Employee employee1 = new Employee(
+                "Quirin",
+                "Ecker",
+                "Mühlkreisbahnstraße 5",
+                LocalDate.now(),
+                "123456",
+                restaurant,
+                Employee.RestaurantPosition.MANAGER
+        );
+
+        Employee employee2 = new Employee(
+                "Quirin",
+                "Ecker",
+                "Mühlkreisbahnstraße 5",
+                LocalDate.now(),
+                "123456",
+                restaurant,
+                Employee.RestaurantPosition.SERVER
+        );
+
+        employee1 = employeeRepository.save(employee1);
+        employee2 = employeeRepository.save(employee2);
+    }
 }
