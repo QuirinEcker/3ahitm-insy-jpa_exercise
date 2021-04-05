@@ -16,11 +16,11 @@ public class DishTranslation {
     @Embeddable
     public static class DishTranslationId implements Serializable {
 
-        @ManyToOne
+        @ManyToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "language_id")
         private Language language;
 
-        @ManyToOne
+        @ManyToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "dish_id")
         private Dish dish;
 

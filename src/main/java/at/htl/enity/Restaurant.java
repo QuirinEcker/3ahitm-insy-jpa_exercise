@@ -1,8 +1,6 @@
 package at.htl.enity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -22,7 +20,7 @@ public class Restaurant {
     private LocalDate openingDate;
 
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Restaurant_Customer",
             joinColumns = {@JoinColumn(name = "restaurant_id")},
@@ -32,7 +30,7 @@ public class Restaurant {
     private List<Customer> customers;
 
     @JsonIgnore
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "Restaurant_Dishes",
             joinColumns = {@JoinColumn(name = "restaurant_id")},
@@ -40,8 +38,7 @@ public class Restaurant {
     )
     private List<Dish> offeredDishes;
 
-    @ManyToOne
-    @Cascade({CascadeType.ALL})
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "opening_hours_id")
     private OpeningHours openingHours;
 

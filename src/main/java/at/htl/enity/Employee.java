@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class Employee extends Person {
 
     private String ssn;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 

@@ -1,6 +1,7 @@
 package at.htl.enity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -11,7 +12,7 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name = "id")
 public class Customer extends Person {
 
-    @ManyToMany(mappedBy = "customers")
+    @ManyToMany(mappedBy = "customers", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Restaurant> restaurants;
 
