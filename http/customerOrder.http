@@ -1,0 +1,48 @@
+##### Get All Customer
+
+GET localhost:8080/customerOrder
+
+##### Get Customer By Id
+
+GET localhost:8080/customerOrder/1
+
+##### Get Restaurants of Customer
+
+GET localhost:8080/customerOrder/1/orderPositions
+
+#### POST Customer
+
+POST localhost:8080/customerOrder
+Content-Type: application/json
+
+{
+  "id": 5,
+  "customer": {
+    "id": 1
+  },
+  "restaurant": {
+    "id": 1
+  },
+  "orderDate": "2021-03-05"
+}
+
+#### PUT Customer
+
+PUT localhost:8080/customerOrder
+Content-Type: application/json
+
+
+{
+  "id": 1,
+  "customer": {
+    "id": 1
+  },
+  "restaurant": {
+    "id": 1
+  },
+  "orderDate": "2021-03-05"
+}
+
+#### DELETE Customer
+DELETE localhost:8080/customerOrder/1
+
