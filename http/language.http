@@ -1,0 +1,22 @@
+##### Get All languages
+
+GET localhost:8080/language
+
+##### Get language by id
+
+GET localhost:8080/language/1
+
+#### POST language
+
+POST localhost:8080/language
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "english",
+  "prefix": "en"
+}
+
+#### DELETE language
+DELETE localhost:8080/language/1
+
