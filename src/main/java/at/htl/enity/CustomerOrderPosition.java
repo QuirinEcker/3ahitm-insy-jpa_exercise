@@ -19,6 +19,21 @@ public class CustomerOrderPosition {
     @JoinColumn(name = "dish_id")
     private Dish dish;
 
+    public CustomerOrderPosition(int orderPos, int quantity, CustomerOrder order, Dish dish) {
+        this.orderPos = orderPos;
+        this.quantity = quantity;
+        this.order = order;
+        this.dish = dish;
+    }
+
+    public CustomerOrderPosition(Long id, int orderPos, int quantity, CustomerOrder order, Dish dish) {
+        this.id = id;
+        this.orderPos = orderPos;
+        this.quantity = quantity;
+        this.order = order;
+        this.dish = dish;
+    }
+
     public CustomerOrderPosition(Long id, int quantity) {
         this.id = id;
         this.quantity = quantity;
