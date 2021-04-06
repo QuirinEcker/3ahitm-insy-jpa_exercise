@@ -18,6 +18,9 @@ public class Customer extends Person {
 
     private int points;
 
+    @OneToMany(mappedBy = "customer")
+    private List<CustomerOrder> customerOrders;
+
     public Customer() {
         this.restaurants = new ArrayList<>();
     }
@@ -61,5 +64,13 @@ public class Customer extends Person {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public List<CustomerOrder> getCustomerOrders() {
+        return customerOrders;
+    }
+
+    public void setCustomerOrders(List<CustomerOrder> customerOrders) {
+        this.customerOrders = customerOrders;
     }
 }

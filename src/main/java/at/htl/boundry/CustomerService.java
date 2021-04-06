@@ -49,6 +49,15 @@ public class CustomerService {
                 .build();
     }
 
+    @GET
+    @Path("{id}/eaten-dishes")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getEatenDishes(@PathParam("id") Long id) {
+        return Response.ok()
+                .entity(repository.getEatenDishes(id))
+                .build();
+    }
+
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
